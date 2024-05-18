@@ -1,0 +1,38 @@
+---
+layout: post 
+title:  "GSoC'24 Okular | An amazing start at GSoC"
+date:   2024-06-03 10:00:21 +0530
+categories: gsoc
+tags: gsoc'24
+comments: false
+---
+#### People of the Internet,
+
+While I have mostly been silent in my blog posts until now, I'd like to put it out there that GSoC'24 at KDE has been going strong for me.
+
+### The Project : Forms/Javascript support improvement for Okular
+Okular, the cross-platform universal document viewer developed by KDE
+supports PDFs with forms.
+These forms often use Javascript to make forms more convenient for its users.
+However, as of today, the support for Javascript within Okular is lacking.
+During this Google Summer of Code timeline, I'll be working on improving this form and javascript support in Okular.
+ 
+Okular uses the QJSEngine provided by the Qt framework for running the javascript in a sandboxed environment. While QJSEngine provides the engine, all the necessary JS objects supported by the PDF specification need to be supported by us.
+Along with this, many Acrobat specific pre-defined scripts need to be implemented in order to allow for PDFs to work consistently with other PDF readers like Adobe Reader, PDF.js, etc.
+
+My project involves providing support for as many features as possible in Okular forms. I'd like to thank Albert Astals Cid for mentoring me for this project.
+
+### Week-1 Recap
+Coding period officially started from the 27th of May and in week 1 itself, I had the following merge requests merged (Yayy!!). 
+- event.selStart && event.selEnd : These event properties allows script writers to correctly use the part of the text that was selected during Keystroke events using `event.selStart` and `event.selEnd`. These properties would also help me further implement the Keystroke event pre-defined methods. [!MR981](https://invent.kde.org/graphics/okular/-/merge_requests/981)
+- AFPercent_Format : This pre-defined method allows for correct formatting of data entered in percentage form fields. [!MR982](https://invent.kde.org/graphics/okular/-/merge_requests/982)
+
+Along with this, I have some more MRs under review right now.
+- AFTime_Keystroke : This pre-defined method allows only the acceptable input in the form fields that are supposed to be for time data. [!MR987](https://invent.kde.org/graphics/okular/-/merge_requests/987)
+- event.change : While event.change already has an implementation, it is inconsistent with the other PDF Readers. It currently evaluates the change from the first point of difference to the end of the string. In fact, it should only reflect the incoming changes. [!MR998](https://invent.kde.org/graphics/okular/-/merge_requests/998)
+
+
+While the first week was off to a great start, there are many more features to implement here. For the next weeks I'm planning on getting the above MRs merged and then working on the other keystroke pre-defined methods.
+
+So that was it for this blog, see you next time. Cheers!
+
