@@ -3,7 +3,7 @@ layout: post
 title:  "GSoC'24 Okular | An amazing start at GSoC"
 date:   2024-06-03 10:00:21 +0530
 categories: gsoc
-tags: gsoc'24
+tags: [gsoc'24, kdeplanet]
 comments: false
 ---
 #### People of the Internet,
