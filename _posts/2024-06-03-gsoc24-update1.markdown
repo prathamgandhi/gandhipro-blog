@@ -5,6 +5,7 @@ date:   2024-06-03 10:00:21 +0530
 categories: gsoc
 tags: [gsoc'24, kdeplanet]
 comments: false
+excerpt: "A brief overview of my work during GSoC'24 at KDE with Okular and the recap for my work in the first week."
 ---
 #### People of the Internet,
 
