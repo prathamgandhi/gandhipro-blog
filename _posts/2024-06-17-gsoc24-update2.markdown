@@ -1,0 +1,31 @@
+---
+layout: post
+title: "GSoC'24 Okular | Week 2-3 Recap"
+date: 2024-06-17 10:30:00 +0530
+categories: gsoc
+tags: [gsoc'24, kdeplanet]
+comments: false
+excerpt: "A brief recap for 2nd and 3rd week"
+---
+#### People of the Internet,
+
+While working on keystroke events, I realized my improvements to the event.change property were still inconsistent for certain Unicode characters. This led me to delve into code units, code points, graphemes, and other cool Unicode concepts. I found [this blog post](https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/) to be very enlightening.
+
+Here's an update on my progress over the past two weeks:
+
+### MRs merged:
+- **event.change** : The change property of the event object now correctly handles Unicode, with adjustments to selStart and selEnd calculations. [!MR998](https://invent.kde.org/graphics/okular/-/merge_requests/998)
+- **cursor position and undo/redo fix** : Fixed cursor position calculations to account for rejected input text and resolved merging issues with undo/redo commands in text fields. [!MR1011](https://invent.kde.org/graphics/okular/-/merge_requests/1011)
+- **DocOpen Event implementation** : Enabled document-level scripts to access the event object by implementing the DocOpen event. [!MR1003](https://invent.kde.org/graphics/okular/-/merge_requests/1003)
+- **Executing validation events correctly** : Fixed a bug where validation scripts wouldn't run after KeystrokeCommit scripts in Okular. [!MR999](https://invent.kde.org/graphics/okular/-/merge_requests/999)
+- **Widget refresh functions for RadioButton, ListEdit and ComboEdit** : Added refresh functions as slots for RadioButton, ListEdit, and ComboEdit widgets, aiding in reset functionality and script updates. [!MR1012](https://invent.kde.org/graphics/okular/-/merge_requests/1012)
+- **Additional document actions in Poppler** : Implemented reading additional document actions (CloseDocument, SaveDocumentStart, SaveDocumentFinish, PrintDocumentStart, PrintDocumentFinish) in the qt5 and qt6 frontends for Poppler. [!MR1561 (in Poppler)](https://gitlab.freedesktop.org/poppler/poppler/-/merge_requests/1561)
+
+### MRs currently under review:
+- **Reset form implementation in qt6 frontend for Okular** : Working on the reset form functionality in Okular, currently focusing on qt6 frontend details. [!MR1564 (in Poppler)](https://gitlab.freedesktop.org/poppler/poppler/-/merge_requests/1564)
+- **Reset form in Okular** : Using the Poppler API to reset forms within Okular. [!MR1007](https://invent.kde.org/graphics/okular/-/merge_requests/1007)
+- **Fixing order of execution of events for text form fields** : Addressing the incorrect execution order of certain events (e.g., calculation scripts) and ensuring keystroke commit, validation, and format scripts are evaluated correctly when setting fields via JavaScript.  [!MR1002](https://invent.kde.org/graphics/okular/-/merge_requests/1002)
+
+For the coming weeks, my focus will be on implementing reset forms, enhancing keystroking and formatting scripts, and possibly starting on submit forms. Let's see how it goes.
+
+See you next time. Cheers!
