@@ -1,0 +1,29 @@
+---
+layout: post 
+title:  "GSoC'24 Okular | Week 4-8 Recap"
+date:   2024-07-25 23:00:21 +0530
+categories: gsoc
+tags: [gsoc'24, kdeplanet]
+comments: false
+excerpt: "A recap for 4-6 weeks for my GSoC journey"
+---
+
+The past weeks involved a lot of work surrounding the implementation of Acrobat specific methods for processing form fields, added support for different types of form widgets and some UI improvements were made or are being worked upon. A detailed list of MRs merged and raised is described below.
+
+### MRs merged:
+- **AFTime_Keystroke implementation** : This method implementation specifies what input keystrokes are allowed in a form field accepting time information. [!MR987](https://invent.kde.org/graphics/okular/-/merge_requests/987)
+- **AFSpecial_Keystroke implementation** : This method implementation specifies what input keystrokes are allowed in form fields of special type i.e. those that accept as input phone numbers, ssn and zip codes. [!MR1013](https://invent.kde.org/graphics/okular/-/merge_requests/1013)
+- **AFPercent_Keystroke and AFNumber_Keystroke methods implemented** : These methods specify input keystrokes for percents and numerical data. [!MR988](https://invent.kde.org/graphics/okular/-/merge_requests/988)
+- **Implement AFDate_KeystrokeEx and AFDate_FormatEx methods.** : For correctly accepting input dates and formatting them according to some pre-specified format. [!MR1017](https://invent.kde.org/graphics/okular/-/merge_requests/1017)
+- **Global object implementation** : A very basic implementation of global object that allows users to read and write to the global object. Persistence and subscription not supported as of now. [!MR1016](https://invent.kde.org/graphics/okular/-/merge_requests/1016)
+- **Commit values and restore**: Implemented the feature to restore values to the previous committed value upon entering a value that is rejected by a keystroke action.[!MR985](https://invent.kde.org/graphics/okular/-/merge_requests/985)
+- **Fix numerical interpretation in form fields**: Calculations were suffering from a major bug [474661](https://bugs.kde.org/474661) that caused incorrect results when using different locales. This was fixed in the [!MR992](https://invent.kde.org/graphics/okular/-/merge_requests/992). The MR focused on how numerical values should be interpreted in form fields.
+- **Implemented DocClose, DocWillPrint, DocDidPrint, DocWillSave and DocDidSave events**: Now actions are triggered during these events with the changes introduced in the [!MR1019](https://invent.kde.org/graphics/okular/-/merge_requests/1019).
+- **Radio Buttons and Check Boxes size fix**: Now radio buttons and check boxes are painted with correct size and resized when zooming to provide a better user experience. [!MR1015](https://invent.kde.org/graphics/okular/-/merge_requests/1015)
+- **Implement value (getter), numItems, currentValueIndices properties and getItemAt for FormFieldChoices**: These methods were introduced to improve the functionality of FormFieldChoices. [!MR1031](https://invent.kde.org/graphics/okular/-/merge_requests/1031)
+- **ResetForm functionality in Poppler**: The Reset form functionality was added to the Qt frontend in Poppler. Introduced in [this commit](https://gitlab.freedesktop.org/poppler/poppler/-/commit/81b83e83c053420d452a31d0cc6321965cb5e358)
+
+Along with these, more MRs are under works for things like implementing UI experience when using form fields and extending functionality of different types of form fields and actions.
+
+See you next time. Cheers!
+
