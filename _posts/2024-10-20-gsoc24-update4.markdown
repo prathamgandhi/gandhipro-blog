@@ -1,0 +1,31 @@
+---
+layout: post
+title: "GSoC'24 Okular | Coming to a Close"
+date:   2024-10-20 23:05:25 +0530
+categories: gsoc
+tags: [gsoc'24, kdeplanet]
+comments: false
+excerpt: "End of my GSoC journey"
+---
+
+Hey folks! Apologies for the long gap since my last post. A lot has happened both personally and professionally—I got a new job and relocated, which led to me extending my GSoC deadline to wrap up the remaining tasks. I’m happy to share that I’ve now completed everything, and all the pending MRs related to my GSoC work have been merged. Here's a quick overview:
+
+### MRs merged:
+- **Reset form implementation in Okular** : Okular now has form reset functionality, allowing you to clear fields or return them to their default values. [!MR1007](https://invent.kde.org/graphics/okular/-/merge_requests/1007)
+- **Support for MouseDown, MouseEnter and MouseExit events** : The corresponding event object is now generated when these mouse events are triggered. [!MR994](https://invent.kde.org/graphics/okular/-/merge_requests/994)
+- **Keystroke, Validate, Calculate and Format event support for Comboboxes** : These essential events were previously not triggered for comboboxes. This MR adds support for them. [!MR1027](https://invent.kde.org/graphics/okular/-/merge_requests/1027)
+- **Fix order of execution of events for text form fields** : Keystroke, Validate, Calculate, and Format actions weren’t always executed in the correct order, especially during undo/redo or when modified via JavaScript. This MR fixes that and ensures KVCF actions are only triggered when a field value is committed, improving keyboard usability. [!MR1002](https://invent.kde.org/graphics/okular/-/merge_requests/1002)
+- **Support for modifying the appearance stream text in form field choice (Poppler)** : Added functionality to modify appearance stream text in form fields without altering their actual values. [!MR1590](https://gitlab.freedesktop.org/poppler/poppler/-/merge_requests/1590)
+- **SubmitForm functionality (Poppler)** : Support for reading the SubmitForm action was added to Poppler. While Okular doesn’t yet implement the actual submission process, this lays the groundwork for future integration. [!MR1579](https://gitlab.freedesktop.org/poppler/poppler/-/merge_requests/1579)
+
+### Future Scope:
+Although much progress has been made during GSoC’24, there are still many areas where Okular's PDF form functionality could be expanded:
+- The actual submission of forms in Okular can be built on top of the SubmitForm action now supported by Poppler.
+- Adding support for the SelectionChange event in ListBoxes would enhance their interactivity.
+- Additional functions could be implemented for CheckBoxes, ComboBoxes, and ListBoxes, such as programmatically checking items, clearing, deleting, inserting, and setting items. Some of these changes would also require updates to Poppler.
+- Improving keyboard navigation for form fields could further boost accessibility and ease of use.
+
+### Conclusion:
+Participating in GSoC with KDE and contributing to Okular has been an incredible learning experience, and I’m proud of the contributions made. Huge thanks to my mentor, Albert Astals Cid, for his constant support, guidance, and patience through all my mistakes. Special thanks to Sune Vuorela for his reviews and insights which helped me learn a lot, and to the KDE Mentorship and GSoC teams for their indirect but invaluable help. I’m looking forward to continuing my journey with KDE.
+
+See you next time. Cheers!
